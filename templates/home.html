@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSV/XLSX Upload</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+        .container {
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            width: 80%;
+            max-width: 1200px;
+            padding: 20px;
+            text-align: center;
+        }
+        .logo {
+            margin-bottom: 10px;
+        }
+        .logo img {
+            max-width: 200px; /* Increase the size */
+        }
+        .steps {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .steps div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .steps div span {
+            background-color: #e0e0e0;
+            color: #000;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+        .steps div.active span {
+            background-color: #007bff;
+            color: white;
+        }
+        .upload-section {
+            margin-top: 20px;
+        }
+        .upload-section p {
+            margin: 0;
+            color: #666;
+        }
+        .upload-section .supported-files {
+            margin-top: 10px;
+            color: #999;
+            font-size: 14px;
+        }
+        .upload-section a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        .upload-section a:hover {
+            text-decoration: underline;
+        }
+        .dropzone {
+            margin: 20px 0;
+            padding: 50px;
+            border: 2px dashed #007bff;
+            border-radius: 8px;
+            background-color: #f7f9fc;
+            transition: background-color 0.3s;
+        }
+        .dropzone.dragover {
+            background-color: #d9d9d9;
+        }
+    </style>
+</head>
+<body>
+    <div class="logo">
+        <img src="{{ url_for('static', filename = 'images/e-yantra-logo.jpg') }}" alt="e-yantra Logo">
+    </div>
+    <div class="container">
+        <h2>CSV/XLSX Upload</h2>
+        <div class="steps">
+            <div class="active">
+                <span>1</span>
+                <p>Upload</p>
+            </div>
+            <div>
+                <span>2</span>
+                <p>Select sheet</p>
+            </div>
+            <div>
+                <span>3</span>
+                <p>Configure</p>
+            </div>
+            <div>
+                <span>4</span>
+                <p>Map your data</p>
+            </div>
+            <div>
+                <span>5</span>
+                <p>Finalize</p>
+            </div>
+        </div>
+        <div class="upload-section">
+            <p>Upload your data</p>
+            <p>Use the dropzone below to upload your CSV or XLSX file.</p>
+            <div class="dropzone" id="dropzone">
+                <p>Drag or <a href="#">Browse your files</a> or <a href="#">Use a sample file</a></p>
+            </div>
+            <p class="supported-files">Supported files: .xls .xlsx .csv | Upload limit: 1GB</p>
+        </div>
+    </div>
+
+    <script>
+        const dropzone = document.getElementById('dropzone');
+
+        dropzone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            dropzone.classList.add('dragover');
+        });
+
+        dropzone.addEventListener('dragleave', () => {
+            dropzone.classList.remove('dragover');
+        });
+
+        dropzone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            dropzone.classList.remove('dragover');
+            // handle file upload here
+        });
+    </script>
+</body>
+</html>
