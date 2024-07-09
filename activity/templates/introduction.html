@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Introduction</title>
+    <style>
+        .container {
+            text-align: center;
+            margin-top: 100px;
+        }
+
+        .next-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const nextButton = document.querySelector('.next-button');
+            if (nextButton) {
+                nextButton.addEventListener('click', function () {
+                    console.log('Next button clicked');
+                    const name = document.querySelector('#name').value;
+                    if (name) {
+                        // Save the name in a cookie
+                        document.cookie = `name=${name}`;
+                        window.location.href = '/resources1';
+                    } else {
+                        alert('Please enter your name');
+                    }
+                });
+            } else {
+                console.error('Next button not found');
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Welcome to the Exhibition!</h1>
+        <p>Please enter your name:</p>
+        <input type="text" id="name" placeholder="Enter your name">
+    </div>
+    <button class="next-button">Next</button>
+</body>
+
+</html>

@@ -1,5 +1,6 @@
 user_id,timestamp,activity
-1,0,"Hello, boys"
-1,20,How are you
-1,50,"I'm Fine thank you, lalala"
-1,80,Bye
+1.0,0.0,"Hello, boys"
+1.0,20.0,How are you
+1.0,50.0,I'm Fine thank you
+1.0,80.0,Bye
+1,102,"Bye, I'm off"

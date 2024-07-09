@@ -12,6 +12,15 @@
 .second-half {
     flex: 1;
     justify-content: center;
+    max-height: 500px;
+    
+}
+
+.second-half img {
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+    margin: auto;
 }
 
 .delete-row, #add-row {
@@ -26,4 +35,184 @@
 
 #add-row {
     background-color: #4CAF50; /* Green for add */
+}
+
+#add-row:hover, .delete-row:hover {
+    background-color: #45a049;
+}
+
+.delete-row:disabled {
+    background-color: #ccc;
+    color: black;
+    cursor: not-allowed;
+}
+
+.delete-row:disabled:hover {
+    background-color: #ccc;
+}
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.first-half, .second-half {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+}
+
+.delete-row, #add-row {
+    margin: 5px;
+    padding: 5px 10px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#add-row {
+    background-color: #4CAF50; /* Green for add */
+}
+
+.delete-row {
+    background-color: #f44336; /* Red for delete */
+}
+
+input[type="submit"] {
+    background-color: #008CBA; /* Blue for submit */
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+input[type="text"] {
+    padding: 5px;
+    margin: 5px 0;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+}
+.error-msg {
+    color: #f44336;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+/* Existing styles from edit-form.css, with modifications and additions below */
+
+.data {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    table-layout: fixed; /* Ensure consistent column widths */
+}
+
+.data th, .data td {
+    text-align: left;
+    padding: 5px;
+    border: 1px solid #ddd; /* More defined cell borders */
+    overflow: hidden; /* Prevent overflow */
+    white-space: nowrap; /* Keep content in a single line */
+    text-overflow: ellipsis; /* Add ellipsis for overflow text */
+}
+
+.data th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.data input[type="text"] {
+    width: 100%;
+    height: 100%;
+    border: none;
+    padding: 20;
+    margin: 10px; /* Align input with cell padding */
+    background-color: transparent; /* Make input blend into the cell */
+}
+
+.data input[type="text"]:focus {
+    outline: none; /* Remove focus outline */
+}
+
+/* Adjust button styles to be less prominent and more integrated */
+#add-row, .delete-row {
+    background-color: #e7e7e7; /* Subtle background */
+    color: #333; /* Dark text for better readability */
+    border: 1px solid #ccc; /* Defined border */
+    padding: 5px 10px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 14px; /* Smaller font size */
+    border-radius: 4px; /* Rounded corners */
+}
+
+#add-row:hover, .delete-row:hover {
+    background-color: #d0d0d0; /* Slightly darker on hover */
+}
+
+.delete-row:disabled {
+    background-color: #f0f0f0;
+    color: #ccc;
+    cursor: not-allowed;
+}
+
+/* Ensure responsiveness */
+@media screen and (max-width: 600px) {
+    .data th, .data td {
+        padding: 4px; /* Smaller padding on smaller screens */
+    }
+}
+
+/* Style the tab */
+.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+    background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+    background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
 }

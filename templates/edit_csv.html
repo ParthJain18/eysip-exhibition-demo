@@ -9,7 +9,13 @@
 
 <body>
     <div class="container">
+
         <div class="first-half">
+            <div class="tab">
+                <button class="tablinks" onclick="openTab(event, 'EditCSV')">Edit CSV</button>
+                <button class="tablinks" onclick="openTab(event, 'UploadCSV')">Upload CSV</button>
+            </div>
+            <div id="EditCSV" class="tabcontent">
             <h1>Edit CSV Data</h1>
             <form id="edit-form">
                 <table class="data">
@@ -37,8 +43,17 @@
                 <input type="submit" value="Save">
             </form>
         </div>
+        <div id="UploadCSV" class="tabcontent" style="display:none;">
+            <h1>Upload CSV File</h1>
+            <form id="upload-form">
+                <input type="file" id="csvFile" accept=".csv">
+                <button type="submit">Upload</button>
+            </form>
+        </div>
+
+        </div>
         <div class="second-half">
-            <img id="process-model" style="max-width: 300px;">
+            <img id="process-model">
         </div>
     </div>
 </body>
