@@ -45,7 +45,7 @@
         </div>
         <div id="UploadCSV" class="tabcontent" style="display:none;">
             <h1>Upload CSV File</h1>
-            <form id="upload-form">
+            <form id="upload-form" enctype="multipart/form-data" method="post">
                 <input type="file" id="csvFile" accept=".csv">
                 <button type="submit">Upload</button>
             </form>

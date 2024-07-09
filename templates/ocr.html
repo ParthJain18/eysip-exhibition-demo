@@ -1,138 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>File Upload Layout</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f9f9f9;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        .container {
-            display: flex;
-            flex-direction: column;
-            width: 80%;
-            max-width: 1200px;
-        }
-        .top-section {
-            display: flex;
-            width: 100%;
-            border: 1px solid #000;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        .sample-image, .drag-and-drop {
-            flex: 1;
-            padding: 20px;
-        }
-        .sample-image {
-            border-right: 1px solid #000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .drag-and-drop {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-        .upload-section {
-            text-align: center;
-        }
-        .upload-box {
-            border: 2px dashed #007bff;
-            padding: 50px;
-            border-radius: 8px;
-            background-color: #f7f9fc;
-            transition: background-color 0.3s;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-        .upload-box.dragover {
-            background-color: #d9d9d9;
-        }
-        .upload-box p {
-            margin: 10px 0;
-            color: #666;
-        }
-        .upload-box a {
-            color: #007bff;
-            text-decoration: none;
-        }
-        .upload-box a:hover {
-            text-decoration: underline;
-        }
-        .supported-files {
-            margin-top: 10px;
-            color: #999;
-            font-size: 14px;
-        }
-        .ocr-text {
-            margin-top: 20px;
-            border: 1px solid #000;
-            padding: 20px;
-            width: 100%;
-            text-align: center;
-            background-color: white;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-    </style>
+    <title>Image Uploader</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/ocr.css') }}">
 </head>
+
 <body>
     <div class="container">
-        <div class="top-section">
-            <div class="sample-image">
-                <h2>Sample Image</h2>
-            </div>
-            <div class="drag-and-drop">
-                <h2>Drag and Drop</h2>
-                <div class="upload-section">
-                    <p>Upload your data</p>
-                    <p>Use the dropzone below to upload your CSV or XLSX file.</p>
-                    <div class="upload-box" id="upload-box">
-                        <p>Drag or <a href="#">Browse your files</a> or <a href="#">Use a sample file</a></p>
-                    </div>
-                    <p class="supported-files">Supported files: .xls .xlsx .csv | Upload limit: 1GB</p>
-                </div>
+        <div class="left">
+            <h3>Sample Images</h3>
+            <div class="sample-images">
+                <img src="{{ url_for('static', filename='images/sample1.jpg')}}" alt="Sample Image 1" class="sample-img"
+                onclick="selectSampleImage('{{ url_for('static', filename='images/sample1.jpg') }}')">
+           <img src="{{ url_for('static', filename='images/sample2.jpg')}}" alt="Sample Image 2" class="sample-img"
+                onclick="selectSampleImage('{{ url_for('static', filename='images/sample2.jpg') }}')">
+                <!-- Add more sample images as needed -->
             </div>
         </div>
-        <div class="ocr-text">
-            <h2>OCR extracted text</h2>
+        <div class="right">
+            <h3>Drag and Drop</h3>
+            <div class="dropzone" id="dropzone">
+                <p>Drag or <a href="#" id="fileSelector">Browse your files</a></p>
+                <input type="file" id="fileInput" accept="image/*" style="display:none;">
+            </div>
+            <div class="image-display" id="imageDisplay">
+                <img id="displayedImage" alt="Selected Image">
+            </div>
         </div>
     </div>
-
-    <script>
-        const uploadBox = document.getElementById('upload-box');
-
-        uploadBox.addEventListener('dragover', (e) => {
-            e.preventDefault();
-            uploadBox.classList.add('dragover');
-        });
-
-        uploadBox.addEventListener('dragleave', () => {
-            uploadBox.classList.remove('dragover');
-        });
-
-        uploadBox.addEventListener('drop', (e) => {
-            e.preventDefault();
-            uploadBox.classList.remove('dragover');
-            const files = e.dataTransfer.files;
-            handleFiles(files);
-        });
-
-        function handleFiles(files) {
-            console.log('Files uploaded:', files);
-            // Add your file handling logic here
-        }
-    </script>
+    <script src="{{ url_for('static', filename='javascript/ocr.js') }}"></script>
 </body>
+
 </html>

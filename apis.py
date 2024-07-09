@@ -1,5 +1,6 @@
-from flask import render_template, request, jsonify, make_response, send_from_directory, Blueprint
+from flask import render_template, request, jsonify, make_response, send_from_directory, Blueprint, redirect, url_for
 import pandas as pd
+import os
 from process_model.main import create_process_model
 
 apis = Blueprint('apis', __name__)
@@ -30,6 +31,24 @@ def process_model():
 
     return send_from_directory('process_model', 'ocr_result.png')
 
+@apis.route('/upload', methods=['POST'])
+def upload_file():
+    if 'csvFile' in request.files:
+        file = request.files['csvFile']
+        if file.filename != '':
+            filename = 'edit-csv.csv'
+            file.save(os.path.join('static/data', filename))
+    return redirect(url_for('edit_csv'))
+
+
+@apis.route('/edit-csv')
+def edit_csv():
+    # Load the CSV file from static/data/edit-csv.csv
+    # Convert it to the format expected by the template
+    # For example, read the CSV into a list of dictionaries
+    data = pd.read_csv('static/data/edit-csv.csv')
+    return render_template('edit_csv.html', data=data)
+
 @apis.route('/edit', methods= ['GET', 'POST'])
 def edit():
     if request.method == 'POST':
@@ -54,4 +73,4 @@ def edit():
 
 @apis.route('/api/ocr', methods= ['POST'])
 def get_ocr():
-    return 
+    
