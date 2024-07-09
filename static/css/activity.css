@@ -1,0 +1,15 @@
+.question {
+    margin-bottom: 30px;
+}
+.correct-answer, .wrong-answer {
+    display: none;
+    margin-top: 10px;
+}
+.star {
+    color: gold;
+    font-size: 24px;
+}
+.answer-explanation {
+    display: none;
+    margin-top: 10px;
+}

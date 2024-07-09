@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Quiz</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/activity.css') }}">
+    <script src="{{ url_for('static', filename='javascript/activity.js') }}" data-csv-url="{{ url_for('static', filename='data/questions.csv') }}"></script></head>
+<body>
+
+        <div id="quiz-container">
+            <div id="question"></div>
+            <ul id="choices"></ul>
+            <button id="next">Next Question</button>
+        </div>
+        <div id="score"></div>
+    
+        <!-- <script src=" {{ url_for('static', filename='javascript/activity.js')}} "></script> -->
+    
+
+<!-- <div class="container mt-5">
+    <div class="alert alert-info">
+        Thank you for trying out H5P. To get started with H5P read our <a href="#" class="alert-link">getting started guide</a>.
+    </div>
+
+    <div class="question">
+        <h4>1. In the concept map, is there a connection between the main topic and nodes?</h4>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" name="q1" id="q1-yes" value="yes">
+            <label class="form-check-label" for="q1-yes">Yes</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" name="q1" id="q1-no" value="no">
+            <label class="form-check-label" for "q1-no">No</label>
+        </div>
+        <button class="btn btn-primary mt-3" onclick="checkAnswer1()">Check</button>
+        <div class="answer-explanation" id="q1-correct">
+            <div class="alert alert-success mt-3">
+                <strong>Correct!</strong> There is a connection and the main topic and the nodes are connected through lines and linking words.
+                <br>Additional information: The concept map consists of four elements: main topic, nodes, lines, and linking words.
+            </div>
+            <span class="star">★ 1/1</span>
+        </div>
+        <div class="answer-explanation" id="q1-wrong">
+            <div class="alert alert-danger mt-3">
+                <strong>Incorrect!</strong> There is a connection and the main topic and the nodes are connected through lines and linking words.
+                <br>Additional information: The concept map consists of four elements: main topic, nodes, lines, and linking words.
+            </div>
+        </div>
+    </div>
+
+    <div class="question">
+        <h4>2. For a 2-wheeled robot, is a castor wheel mandatory?</h4>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" name="q2" id="q2-yes" value="yes">
+            <label class="form-check-label" for="q2-yes">Yes</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" name="q2" id="q2-no" value="no">
+            <label class="form-check-label" for="q2-no">No</label>
+        </div>
+        <button class="btn btn-primary mt-3" onclick="checkAnswer2()">Check</button>
+        <div class="answer-explanation" id="q2-correct">
+            <div class="alert alert-success mt-3">
+                <strong>Correct!</strong> It is good to have a castor wheel to prevent the robot from tipping while starting and stopping, but it is not mandatory. Also, self-balancing robots do not consist of a castor wheel.
+            </div>
+            <span class="star">★ 1/1</span>
+        </div>
+        <div class="answer-explanation" id="q2-wrong">
+            <div class="alert alert-danger mt-3">
+                <strong>Incorrect!</strong> It is good to have a castor wheel to prevent the robot from tipping while starting and stopping, but it is not mandatory. Also, self-balancing robots do not consist of a castor wheel.
+            </div>
+        </div>
+    </div>
+</div> -->
+
+</body>
+</html>

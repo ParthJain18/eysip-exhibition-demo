@@ -1,0 +1,29 @@
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.first-half {
+    flex: 1;
+    justify-content: center;
+
+}
+
+.second-half {
+    flex: 1;
+    justify-content: center;
+}
+
+.delete-row, #add-row {
+    margin: 5px;
+    padding: 5px 10px;
+    background-color: #f44336; /* Red for delete */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#add-row {
+    background-color: #4CAF50; /* Green for add */
+}

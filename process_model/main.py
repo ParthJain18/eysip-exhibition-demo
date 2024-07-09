@@ -53,7 +53,7 @@ def create_process_model(data: pd.DataFrame):
         dot.edge(start, end, label=f' {transitions[(start, end)]}', penwidth=f'{0.5 * transitions[(start, end)]}')
 
     # Render the process model diagram as a PNG file
-    dot.render(output_file_name, view=True, cleanup=True, format='png', directory='process_model', engine='dot')
+    dot.render(output_file_name, view=False, cleanup=True, format='png', directory='process_model', engine='dot')
 
     print(f"Process model diagram saved as '{output_file_name}.png'")
 

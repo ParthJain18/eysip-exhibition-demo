@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Edit CSV Data</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/edit-form.css') }}">
+    <script src="{{ url_for('static', filename='javascript/edit-form-script.js') }}"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="first-half">
+            <h1>Edit CSV Data</h1>
+            <form id="edit-form">
+                <table class="data">
+                    <thead>
+                        <tr>
+                            {% for col in data[0].keys() %}
+                            <th>{{ col }}</th>
+                            {% endfor %}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in data %}
+                        <tr>
+                            {% for col, val in row.items() %}
+                            <td><input type="text" name="{{ col }}" value="{{ val }}"></td>
+                            {% endfor %}
+                            <td><button type="button" class="delete-row">Delete</button></td>
+                        </tr>
+                        {% endfor %}
+
+                    </tbody>
+                </table>
+                <br>
+                <button type="button" id="add-row">Add Row</button>
+                <input type="submit" value="Save">
+            </form>
+        </div>
+        <div class="second-half">
+            <img id="process-model" style="max-width: 300px;">
+        </div>
+    </div>
+</body>
+
+</html>
