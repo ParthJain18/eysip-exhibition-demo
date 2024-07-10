@@ -1,7 +1,9 @@
-from flask import render_template, request, jsonify, make_response, send_from_directory, Blueprint, redirect, url_for
+from flask import render_template, request, jsonify, make_response, send_from_directory, Blueprint, redirect, url_for, send_file
 import pandas as pd
 import os
 from process_model.main import create_process_model
+from ocr.ocr import perform_ocr
+from werkzeug.utils import secure_filename
 
 apis = Blueprint('apis', __name__)
 
@@ -73,4 +75,28 @@ def edit():
 
 @apis.route('/api/ocr', methods= ['POST'])
 def get_ocr():
-    
+    data = request.get_json()
+    print(data)
+    text = perform_ocr(data['imagePath'])
+    return make_response(jsonify({"text": text}), 200)
+
+@apis.route('/api/ocr-from-file', methods=['POST'])
+def ocr_from_file():
+    print(request.files)
+    if 'file' not in request.files:
+        return jsonify({'error': 'No file part'}), 400
+
+    file = request.files['file']
+    if file.filename == '':
+        return jsonify({'error': 'No selected file'}), 400
+
+    if file:
+        filepath = os.path.join('temporary_directory', secure_filename(file.filename))
+        file.save(filepath)
+
+        print(filepath)
+        # Replace 'perform_activity' with the actual function that processes the file
+        text = perform_ocr(filepath)
+        print(text)
+
+        return make_response(jsonify({'text': text}), 200)

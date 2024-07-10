@@ -27,9 +27,14 @@
                 <input type="file" id="fileInput" accept="image/*" style="display:none;">
             </div>
             <div class="image-display" id="imageDisplay">
-                <img id="displayedImage" alt="Selected Image">
+                <img id="displayedImage" src=" {{ url_for('static', filename='images/placeholder.jpg')}}">
             </div>
         </div>
+    </div>
+    <div id="ocrOutput" class="ocr-output">
+        <h3>OCR Output</h3>
+        <div id="ocrText" class="ocr-text">
+
     </div>
     <script src="{{ url_for('static', filename='javascript/ocr.js') }}"></script>
 </body>

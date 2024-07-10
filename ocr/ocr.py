@@ -1,8 +1,37 @@
 import pytesseract
 import cv2
+from PIL import Image, ImageDraw
+import io
 
 from google.cloud import vision
 client = vision.ImageAnnotatorClient()
+
+def perform_ocr(image, config: str = "", lang_code: str = "eng") -> str:
+
+    # Use above OR uncomment below to use Pytesseract
+    if type(image) == str:
+        image = "./" + image
+        print(image)
+        image = cv2.imread(image)
+    
+    _, encoded_image = cv2.imencode('.png', image)
+    content = encoded_image.tobytes()
+
+    if content is None:
+      print("Content is None")
+      return
+    
+    image = vision.Image(content=content)
+    response = client.document_text_detection(image=image)
+    texts = response.text_annotations
+
+    if texts:
+        print(texts[0].description)
+        return texts[0].description
+    else:
+        print("No text detected")
+        return " "
+
 
 def extract_text_from_image(image, config: str = "", lang_code: str = "eng") -> str:
     """
