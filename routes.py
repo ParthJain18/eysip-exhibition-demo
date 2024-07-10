@@ -24,3 +24,11 @@ def main5():
 def edit_csv():
     data = pd.read_csv('static/data/csv-file.csv')
     return render_template('edit_csv.html', data = data.to_dict(orient='records'))
+
+@routes.route('/game')
+def game():
+    return render_template('game.html')
+
+@routes.route('/game1')
+def game1():
+    return render_template('game1.html')

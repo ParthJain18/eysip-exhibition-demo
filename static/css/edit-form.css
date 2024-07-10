@@ -3,6 +3,69 @@
     justify-content: center;
 }
 
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f8f8f8;
+    border-bottom: 1px solid #ddd;
+    position:fixed;
+    width: 100%;
+    top:0;
+    z-index: 1000;
+}
+
+header .logo {
+    padding:15px;
+    height: 50px;
+}
+
+header .iitb-logo {
+    height: 100px;
+}
+
+header h1 {
+    flex: 1;
+    text-align: center;
+    margin: 0;
+}
+
+aside {
+    background-color: #f8f8f8;
+    border-right: 1px solid #ddd;
+    width: 150px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: calc(100vh - 100px); /* Adjust height based on header height */
+    position: fixed; /* Fix the position */
+    top: 100px; /* Adjust based on header height */
+}
+
+aside nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    
+}
+
+aside nav ul li {
+    margin: 20px 0;
+}
+
+aside nav ul li a {
+    text-decoration: none;
+    color: #000;
+}
+
+aside nav ul li a:hover{
+    color: red;
+    transform: translate(50s all ease);
+}
+
+
+
 .first-half {
     flex: 1;
     justify-content: center;
@@ -31,6 +94,10 @@
     border: none;
     border-radius: 5px;
     cursor: pointer;
+}
+
+.delete-row {
+
 }
 
 #add-row {
@@ -215,4 +282,8 @@ input[type="text"] {
     padding: 6px 12px;
     border: 1px solid #ccc;
     border-top: none;
+}
+
+.delete-table{
+    border: none;
 }
