@@ -10,7 +10,8 @@
 
 <body>
     <header>
-        <img src="{{ url_for('static', filename='images/e-yantra-logo.jpg') }}" alt="e-Yantra" class="logo">
+        <a href="/"><img src="{{ url_for('static', filename='images/e-yantra-logo.jpg') }}" alt="e-Yantra" class="logo"></a>
+
         <h1>e-yantra Summer Internship Program 2024</h1>
         <img src="{{ url_for('static', filename='images/iit-logo.png') }}" alt="IIT Bombay" class="iitb-logo">
     </header>
@@ -19,7 +20,16 @@
     <aside id="nav-bar">
         <nav>   
             <ul>
-                <li><a href="{{ url_for('routes.activity')}}">Activity</a></li>
+                <!-- <li><a href="{{ url_for('routes.activity')}}">Activity</a></li> -->
+                <div class="dropdown">
+                    <button class="dropbtn">Activity</button>
+                    <div class="dropdown-content">
+                        <a href="">Resource 1</a>
+                        <a href="{{ url_for('routes.game')}}">Activity 1</a>
+                        <a href="">Resource 2</a>
+                        <a href="{{ url_for('routes.game1')}}">Activity 2</a>
+                    </div>
+                </div>
                 <li><a href="{{ url_for('routes.edit_csv')}}">Process Model</a></li>
                 <li><a href="{{ url_for('routes.ocr')}}">OCR</a></li>
                 <li><a href="#">Testimonial</a></li>

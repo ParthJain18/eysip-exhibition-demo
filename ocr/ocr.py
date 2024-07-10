@@ -1,66 +1,66 @@
-import pytesseract
-import cv2
-from PIL import Image, ImageDraw
-import io
+# import pytesseract
+# import cv2
+# from PIL import Image, ImageDraw
+# import io
 
-from google.cloud import vision
-client = vision.ImageAnnotatorClient()
+# from google.cloud import vision
+# client = vision.ImageAnnotatorClient()
 
-def perform_ocr(image, config: str = "", lang_code: str = "eng") -> str:
+# def perform_ocr(image, config: str = "", lang_code: str = "eng") -> str:
 
-    # Use above OR uncomment below to use Pytesseract
-    if type(image) == str:
-        image = "./" + image
-        print(image)
-        image = cv2.imread(image)
+#     # Use above OR uncomment below to use Pytesseract
+#     if type(image) == str:
+#         image = "./" + image
+#         print(image)
+#         image = cv2.imread(image)
     
-    _, encoded_image = cv2.imencode('.png', image)
-    content = encoded_image.tobytes()
+#     _, encoded_image = cv2.imencode('.png', image)
+#     content = encoded_image.tobytes()
 
-    if content is None:
-      print("Content is None")
-      return
+#     if content is None:
+#       print("Content is None")
+#       return
     
-    image = vision.Image(content=content)
-    response = client.document_text_detection(image=image)
-    texts = response.text_annotations
+#     image = vision.Image(content=content)
+#     response = client.document_text_detection(image=image)
+#     texts = response.text_annotations
 
-    if texts:
-        print(texts[0].description)
-        return texts[0].description
-    else:
-        print("No text detected")
-        return " "
-
-
-def extract_text_from_image(image, config: str = "", lang_code: str = "eng") -> str:
-    """
-    * Function Name:    extract_text_from_image
-    * Input:            image: np.ndarray, config: str, lang_code: str
-    * Output:           str
-    * Logic:            This function extracts text from the image using Google Vision API or Pytesseract.
-    """
+#     if texts:
+#         print(texts[0].description)
+#         return texts[0].description
+#     else:
+#         print("No text detected")
+#         return " "
 
 
-    # Google OCR using Vision API
-    _, encoded_image = cv2.imencode('.png', image)
-    content = encoded_image.tobytes()
+# def extract_text_from_image(image, config: str = "", lang_code: str = "eng") -> str:
+#     """
+#     * Function Name:    extract_text_from_image
+#     * Input:            image: np.ndarray, config: str, lang_code: str
+#     * Output:           str
+#     * Logic:            This function extracts text from the image using Google Vision API or Pytesseract.
+#     """
 
-    if content is None:
-      print("Content is None")
-      return
+
+#     # Google OCR using Vision API
+#     _, encoded_image = cv2.imencode('.png', image)
+#     content = encoded_image.tobytes()
+
+#     if content is None:
+#       print("Content is None")
+#       return
     
-    image = vision.Image(content=content)
+#     image = vision.Image(content=content)
 
-    response = client.document_text_detection(image=image)
-    texts = response.text_annotations
+#     response = client.document_text_detection(image=image)
+#     texts = response.text_annotations
 
-    if texts:
-        return texts[0].description
-    else:
-        print("No text detected")
-        return " "
+#     if texts:
+#         return texts[0].description
+#     else:
+#         print("No text detected")
+#         return " "
 
-    ## Use above OR uncomment below to use Pytesseract
-    # text = pytesseract.image_to_string(image, lang= lang_code, config=config)
-    # return text
+#     ## Use above OR uncomment below to use Pytesseract
+#     # text = pytesseract.image_to_string(image, lang= lang_code, config=config)
+#     # return text

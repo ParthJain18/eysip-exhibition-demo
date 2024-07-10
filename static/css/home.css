@@ -65,6 +65,11 @@ aside nav ul li a {
     color: #000;
 }
 
+aside nav ul li a:hover{
+    color: red;
+    transition: all 0.2s ease;
+}
+
 main {
     flex: 1;
     display: flex;
@@ -98,3 +103,75 @@ main h2 {
     background-color: rgba(255, 255, 255, 0.8); /* Optional: Add a background to the text for readability */
     align-self: center;
 }
+
+/* Style the dropdown container */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Style the button that is used to trigger the dropdown menu */
+.dropbtn {
+    background-color: #f8f8f8;
+    color: black;
+    padding: 0px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    margin-right: 20px;
+    margin-top: 20px;
+}
+
+/* Add an arrow icon to the button */
+.dropbtn::after {
+    content: '';
+    display: inline-block;
+    margin-left: 10px;
+    margin-bottom: 2px;
+    width: 0; 
+    height: 0; 
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid black;
+}
+
+/* Style the dropdown content (hidden by default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Style the links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change the color of dropdown links on hover */
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+    background-color: white;
+}
+
+/* Optionally, change the arrow direction when hovering */
+.dropdown:hover .dropbtn::after {
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid white;
+}
+

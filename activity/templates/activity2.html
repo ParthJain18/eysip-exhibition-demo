@@ -1,44 +1,61 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Quizzify - Play</title>
+    <!-- <link rel="stylesheet" href="./app.css" /> -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/game.css') }}">
+    <!-- <link rel="stylesheet" href="./game.css" /> -->
 
-<head>
-    <title>Activity 2</title>
-    <style>
-        .container {
-            text-align: center;
-            margin-top: 100px;
-        }
-
-        .next-button {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-        }
-
-        .back-button {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-        }
-    </style>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            document.querySelector('.next-button').addEventListener('click', function () {
-            window.location.href = '/final';
-        });
-        document.querySelector('.back-button').addEventListener('click', () => {
-            window.location.href = '/resources2';
-        })
-    });
-    </script>
-</head>
-
-<body>
+  </head>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3775445581945009"
+     crossorigin="anonymous"></script>
+  <body>
     <div class="container">
-        <h1>Welcome to the Activity 2!</h1>
+      <div id="loader"></div>
+      <div id="game" class="justify-center flex-column hidden">
+        <div id="hud">
+          <div id="hud-item">
+            <p id="progressText" class="hud-prefix">
+              Question
+            </p>
+            <div id="progressBar">
+              <div id="progressBarFull"></div>
+            </div>
+          </div>
+          <div id="hud-item">
+            <p class="hud-prefix">
+              Score
+            </p>
+            <h1 class="hud-main-text" id="score">
+              0
+            </h1>
+          </div>
+        </div>
+        <h2 id="question"></h2>
+        <div class="choice-container">
+          <p class="choice-prefix">A</p>
+          <p class="choice-text" data-number="1"></p>
+        </div>
+        <div class="choice-container">
+          <p class="choice-prefix">B</p>
+          <p class="choice-text" data-number="2"></p>
+        </div>
+        <div class="choice-container">
+          <p class="choice-prefix">C</p>
+          <p class="choice-text" data-number="3"></p>
+        </div>
+        <div class="choice-container">
+          <p class="choice-prefix">D</p>
+          <p class="choice-text" data-number="4"></p>
+        </div>
+      </div>
     </div>
-    <button class="back-button">Back</button>
-    <button class="next-button">Next</button>
-</body>
+    <!-- <script src="./game.js"></script> -->
+    <script src="{{ url_for('static', filename='javascript/game.js') }}"></script>
 
+  </body>
 </html>

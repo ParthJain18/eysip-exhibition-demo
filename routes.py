@@ -10,11 +10,11 @@ def index():
 
 @routes.route('/activity')
 def activity():
-    return render_template('ac.html')
-
+    return render_template('activity1.html')
 @routes.route('/ocr')
 def ocr():
     return render_template('ocr.html')
+
 
 @routes.route('/main5')
 def main5():
