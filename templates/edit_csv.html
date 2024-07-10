@@ -8,7 +8,22 @@
 </head>
 
 <body>
+    <aside id="nav-bar">
+        <nav>   
+            <ul>
+                <li><a href="{{ url_for('routes.activity')}}">Activity</a></li>
+                <li><a href="{{ url_for('routes.edit_csv')}}">Process Model</a></li>
+                <li><a href="{{ url_for('routes.ocr')}}">OCR</a></li>
+                <li><a href="#">Testimonial</a></li>
+            </ul>
+        </nav>
+    </aside>
     <div class="container">
+        <header>
+            <img src="{{ url_for('static', filename='images/e-yantra-logo.jpg') }}" alt="e-Yantra" class="logo">
+            <h1>e-yantra Summer Internship Program 2024</h1>
+            <img src="{{ url_for('static', filename='images/iit-logo.png') }}" alt="IIT Bombay" class="iitb-logo">
+        </header>
 
         <div class="first-half">
             <div class="tab">
@@ -26,13 +41,12 @@
                             {% endfor %}
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody >
                         {% for row in data %}
-                        <tr>
                             {% for col, val in row.items() %}
                             <td><input type="text" name="{{ col }}" value="{{ val }}"></td>
                             {% endfor %}
-                            <td><button type="button" class="delete-row">Delete</button></td>
+                            <td ><button type="button" class="delete-row">Delete</button></td>
                         </tr>
                         {% endfor %}
 

@@ -9,7 +9,26 @@
 </head>
 
 <body>
+    <header>
+        <img src="{{ url_for('static', filename='images/e-yantra-logo.jpg') }}" alt="e-Yantra" class="logo">
+        <h1>e-yantra Summer Internship Program 2024</h1>
+        <img src="{{ url_for('static', filename='images/iit-logo.png') }}" alt="IIT Bombay" class="iitb-logo">
+    </header>
+
+        
+    <aside id="nav-bar">
+        <nav>   
+            <ul>
+                <li><a href="{{ url_for('routes.activity')}}">Activity</a></li>
+                <li><a href="{{ url_for('routes.edit_csv')}}">Process Model</a></li>
+                <li><a href="{{ url_for('routes.ocr')}}">OCR</a></li>
+                <li><a href="#">Testimonial</a></li>
+            </ul>
+        </nav>
+    </aside>
+
     <div class="container">
+
         <div class="left">
             <h3>Sample Images</h3>
             <div class="sample-images">

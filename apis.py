@@ -73,4 +73,4 @@ def edit():
 
 @apis.route('/api/ocr', methods= ['POST'])
 def get_ocr():
-    
+    return
